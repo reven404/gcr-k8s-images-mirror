@@ -1,0 +1,92 @@
+name: mirror of gcr k8s images
+on: 
+  push:
+    tags:
+      - 'v*.*.*'
+jobs:
+  copy-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+      
+      - name: Resolve tag name
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Login to aliyun cr
+        uses: docker/login-action@v1
+        with:
+          registry: registry.cn-beijing.aliyuncs.com
+          username: ${{ secrets.ALIYUN_CR_USERNAME }}
+          password: ${{ secrets.ALIYUN_CR_PASSWORD }}
+
+      - name: Load k8s images version
+        uses: c-py/action-dotenv-to-setenv@v3
+        with:
+          env-file: ./images/${{ env.RELEASE_VERSION }}
+
+      - name: copy k8s.gcr.io/pause to aliyun
+        uses: akhilerm/tag-push-action@v1.0.0
+        with:
+          src: k8s.gcr.io/pause:${{ env.pause }}
+          dst: |
+            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/pause:${{ env.pause }}
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'      
+      - name: copy k8s.gcr.io/etcd to aliyun
+        uses: akhilerm/tag-push-action@v1.0.0
+        with:
+          src: k8s.gcr.io/etcd:${{ env.etcd }}
+          dst: |
+            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/etcd:${{ env.etcd }}
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'      
+      - name: copy k8s.gcr.io/coredns to aliyun
+        uses: akhilerm/tag-push-action@v1.0.0
+        with:
+          src: k8s.gcr.io/coredns/coredns:${{ env.coredns }}
+          dst: |
+            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/coredns:${{ env.coredns }}
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'    
+      - name: copy k8s.gcr.io/kube-proxy to aliyun
+        uses: akhilerm/tag-push-action@v1.0.0
+        with:
+          src: k8s.gcr.io/kube-proxy:${{ env.kube_proxy }}
+          dst: |
+            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/kube-proxy:${{ env.kube_proxy }}     
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'    
+      - name: copy k8s.gcr.io/kube-apiserver to aliyun
+        uses: akhilerm/tag-push-action@v1.0.0
+        with:
+          src: k8s.gcr.io/kube-apiserver:${{ env.kube_apiserver }}
+          dst: |
+            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/kube-apiserver:${{ env.kube_apiserver }}
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'    
+      - name: copy k8s.gcr.io/kube-controller-manager to aliyun
+        uses: akhilerm/tag-push-action@v1.0.0
+        with:
+          src: k8s.gcr.io/kube-controller-manager:${{ env.kube_controller_manager }}
+          dst: |
+            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/kube-controller-manager:${{ env.kube_controller_manager }}
+      - name: Sleep for 30 seconds
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '30s'    
+      - name: copy k8s.gcr.io/kube-scheduler to aliyun
+        uses: akhilerm/tag-push-action@v1.0.0
+        with:
+          src: k8s.gcr.io/kube-scheduler:${{ env.kube_scheduler }}
+          dst: |
+            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/kube-scheduler:${{ env.kube_scheduler }}
