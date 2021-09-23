@@ -30,60 +30,60 @@ jobs:
           src: k8s.gcr.io/pause:${{ env.pause }}
           dst: |
             registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/pause:${{ env.pause }}
-      - name: Sleep for 30 seconds
+      - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: '30s'      
+          time: '10s'      
       - name: copy k8s.gcr.io/etcd to aliyun
         uses: akhilerm/tag-push-action@v1.0.0
         with:
           src: k8s.gcr.io/etcd:${{ env.etcd }}
           dst: |
             registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/etcd:${{ env.etcd }}
-      - name: Sleep for 30 seconds
+      - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: '30s'      
+          time: '10s'      
       - name: copy k8s.gcr.io/coredns to aliyun
         uses: akhilerm/tag-push-action@v1.0.0
         with:
           src: k8s.gcr.io/coredns/coredns:${{ env.coredns }}
           dst: |
             registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/coredns:${{ env.coredns }}
-      - name: Sleep for 30 seconds
+      - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: '30s'    
+          time: '10s'    
       - name: copy k8s.gcr.io/kube-proxy to aliyun
         uses: akhilerm/tag-push-action@v1.0.0
         with:
           src: k8s.gcr.io/kube-proxy:${{ env.kube_proxy }}
           dst: |
             registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/kube-proxy:${{ env.kube_proxy }}     
-      - name: Sleep for 30 seconds
+      - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: '30s'    
+          time: '10s'    
       - name: copy k8s.gcr.io/kube-apiserver to aliyun
         uses: akhilerm/tag-push-action@v1.0.0
         with:
           src: k8s.gcr.io/kube-apiserver:${{ env.kube_apiserver }}
           dst: |
             registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/kube-apiserver:${{ env.kube_apiserver }}
-      - name: Sleep for 30 seconds
+      - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: '30s'    
+          time: '10s'    
       - name: copy k8s.gcr.io/kube-controller-manager to aliyun
         uses: akhilerm/tag-push-action@v1.0.0
         with:
           src: k8s.gcr.io/kube-controller-manager:${{ env.kube_controller_manager }}
           dst: |
             registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/kube-controller-manager:${{ env.kube_controller_manager }}
-      - name: Sleep for 30 seconds
+      - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
-          time: '30s'    
+          time: '10s'    
       - name: copy k8s.gcr.io/kube-scheduler to aliyun
         uses: akhilerm/tag-push-action@v1.0.0
         with:
