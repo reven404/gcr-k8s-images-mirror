@@ -29,7 +29,7 @@ jobs:
         with:
           src: k8s.gcr.io/pause:${{ env.pause }}
           dst: |
-            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/pause:${{ env.pause }}
+            registry.us-west-1.aliyuncs.com/gcr-k8s-mirror/pause:${{ env.pause }}
       - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
@@ -39,7 +39,7 @@ jobs:
         with:
           src: k8s.gcr.io/etcd:${{ env.etcd }}
           dst: |
-            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/etcd:${{ env.etcd }}
+            registry.us-west-1.aliyuncs.com/gcr-k8s-mirror/etcd:${{ env.etcd }}
       - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
@@ -49,7 +49,7 @@ jobs:
         with:
           src: k8s.gcr.io/coredns/coredns:${{ env.coredns }}
           dst: |
-            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/coredns:${{ env.coredns }}
+            registry.us-west-1.aliyuncs.com/gcr-k8s-mirror/coredns:${{ env.coredns }}
       - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
@@ -59,7 +59,7 @@ jobs:
         with:
           src: k8s.gcr.io/kube-proxy:${{ env.kube_proxy }}
           dst: |
-            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/kube-proxy:${{ env.kube_proxy }}     
+            registry.us-west-1.aliyuncs.com/gcr-k8s-mirror/kube-proxy:${{ env.kube_proxy }}     
       - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
@@ -69,7 +69,7 @@ jobs:
         with:
           src: k8s.gcr.io/kube-apiserver:${{ env.kube_apiserver }}
           dst: |
-            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/kube-apiserver:${{ env.kube_apiserver }}
+            registry.us-west-1.aliyuncs.com/gcr-k8s-mirror/kube-apiserver:${{ env.kube_apiserver }}
       - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
@@ -79,7 +79,7 @@ jobs:
         with:
           src: k8s.gcr.io/kube-controller-manager:${{ env.kube_controller_manager }}
           dst: |
-            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/kube-controller-manager:${{ env.kube_controller_manager }}
+            registry.us-west-1.aliyuncs.com/gcr-k8s-mirror/kube-controller-manager:${{ env.kube_controller_manager }}
       - name: Sleep for 10 seconds
         uses: jakejarvis/wait-action@master
         with:
@@ -89,4 +89,4 @@ jobs:
         with:
           src: k8s.gcr.io/kube-scheduler:${{ env.kube_scheduler }}
           dst: |
-            registry.cn-beijing.aliyuncs.com/gcr-k8s-mirror/kube-scheduler:${{ env.kube_scheduler }}
+            registry.us-west-1.aliyuncs.com/gcr-k8s-mirror/kube-scheduler:${{ env.kube_scheduler }}
