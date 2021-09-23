@@ -15,7 +15,7 @@ jobs:
       - name: Login to aliyun cr
         uses: docker/login-action@v1
         with:
-          registry: registry.cn-hangzhou.aliyuncs.com
+          registry: registry.us-west-1.aliyuncs.com
           username: ${{ secrets.ALIYUN_CR_USERNAME }}
           password: ${{ secrets.ALIYUN_CR_PASSWORD }}
 
